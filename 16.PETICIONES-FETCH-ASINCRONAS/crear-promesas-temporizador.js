@@ -18,7 +18,10 @@ url()
         // usuario = user.data;
         console.log('Single User= ', janet.data);
         single_user_print(janet.data);
-    });
+        // aqui retorno la nueva función con la nueva promesa que he creado
+        return get_info();
+    })
+    .then((info) => console.log(info));
 
 const listado_usuarios = (usuarios) => {
     usuarios.map((perfil, index) => { // el método .map() crea una nueva matriz con los resultados de llamar a una función para cada elemento de la matriz.
@@ -48,3 +51,55 @@ function single_user_print(janet) {
     janet_template.append(img) // aqui añado la imagen en el div del html 
 
 };
+
+
+//¿ COMO CREAR PROMESAS?
+
+// function get_info() {
+//     // DEFINO UNA VARIABLE COMO UN OBJETO JSON
+//     var mis_datos = {
+//         nombre: 'Yoel',
+//         pais: 'españa',
+//         instagram: 'https://instagram.com'
+//     };
+//     // ahora instancio el objeto promise para crear una nueva promesa
+//     return new Promise((resolve, reject) => {
+
+//         // convierto el objeto JSON mis_datos en un JSON STRING para ello:
+//         var mis_datos_string = JSON.stringify(mis_datos);
+//         // coloco una condicion por sin el tipo de datos no es un json string que arroje un error111
+//         if (typeof mis_datos_string != 'string') return reject('error111'); // en este caso no hace falta colocar los corchetes porque la unica intruccion es return 
+//         //    si la conversión a string se ha realizado correctamente que arroje la información del json string
+//         return resolve(mis_datos_string);
+
+
+//     });
+// }
+
+
+// AHORA A LA PROMESA LE COLOCO UN TEMPORIZADOR PARA SIMULAR UN RETARDO EN LA RESPUESTA DE LA PETICIÓN
+// YA QUE MUCHAS VECES TRAS REALIZAR PETICIONES A SERVICIOS EXTERNOS O AL BACKEND HAY UN RETARDO
+function get_info() {
+    // DEFINO UNA VARIABLE COMO UN OBJETO JSON
+    var mis_datos = {
+        nombre: 'Yoel',
+        pais: 'españa',
+        instagram: 'https://instagram.com'
+    };
+    // ahora instancio el objeto promise para crear una nueva promesa
+    return new Promise((resolve, reject) => {
+
+        // convierto el objeto JSON mis_datos en un JSON STRING para ello:
+        var mis_datos_string = "";
+        setTimeout(() => {
+            mis_datos_string = JSON.stringify(mis_datos);
+            // coloco una condicion por sin el tipo de datos no es un json string que arroje un error111
+            if (typeof mis_datos_string != 'string' || mis_datos_string == '') return reject('error111'); // en este caso no hace falta colocar los corchetes porque la unica intruccion es return 
+            //    si la conversión a string se ha realizado correctamente que arroje la información del json string
+            return resolve(mis_datos_string);
+
+        }, 3000);
+
+
+    });
+}
