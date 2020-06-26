@@ -21,6 +21,10 @@ fetch('https://reqres.in/api/users?page=2')
     //     return response.text();
     .then((response) => response.json()) // forma más limpia de escribir una función callback con solamente el return
     .then((user) => { // forma tradicional del funcion callback
+        // let usuario1 = user;
+        // console.log({ usuario1 });
+        // se utiliza la propiedad ".data" a continuación para que solo se arroje la información que se requiere y no toda la información
+        // de la petición fetch como se observa en el console.log anterior/
         usuario = user.data;
         console.log('User = ', usuario);
         usuario.map((perfil, index) => { // el método .map() crea una nueva matriz con los resultados de llamar a una función para cada elemento de la matriz.

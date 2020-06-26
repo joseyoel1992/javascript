@@ -87,6 +87,8 @@ function get_info() {
         instagram: 'https://instagram.com'
     };
     // ahora instancio el objeto promise para crear una nueva promesa
+    // resolve y reject son dos funciones callback. Por tanto, las promesas estan constituidas por 
+    // tres callbacks incluyendo la funcion flecha
     return new Promise((resolve, reject) => {
 
         // convierto el objeto JSON mis_datos en un JSON STRING para ello:
