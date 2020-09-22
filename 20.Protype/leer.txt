@@ -1,0 +1,4 @@
+La propiedad prototype, permite poder agregar nuevos propiedades o métodos al constructor de un objeto
+
+En el archivo "index1.html" se agrega una nueva propiedad al constructor de un objeto
+En el archivo "index2.html" se agrega un nuevo método al constructor de un objeto
