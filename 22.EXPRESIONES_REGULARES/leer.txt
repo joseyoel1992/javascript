@@ -1,0 +1,3 @@
+Las expresiones regulares permiten detectar patrones en distintas cadenas texto.
+Un ejemplo muy sencillo es la comprobación vía expresión regular que los datos rellenados 
+por los usuarios en un formulario son correctos o no
